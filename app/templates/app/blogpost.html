@@ -1,0 +1,128 @@
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+{% block content %}
+
+
+
+
+
+<body>
+
+<!-- breadcrumb -->
+	<div class="container">
+		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg m-t-75">
+			<a href="{% url 'home' %}" class="stext-109 cl8 hov-cl1 trans-04">
+				Главная
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<a href="{% url 'blog' %}" class="stext-109 cl8 hov-cl1 trans-04">
+				Блог
+				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+			</a>
+
+			<span class="stext-109 cl4">
+				{{post_1.title}}
+			</span>
+		</div>
+	</div>
+
+
+	<!-- Content page -->
+	<section class="bg0 p-t-52 p-b-20">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-45 p-r-0-lg">
+						<!--  -->
+						<div class="wrap-pic-w how-pos5-parent">
+							{% if post_1.image and post_1.image.url != "/media/temp.jpg" %}
+                            <img src="{{post_1.image.url}}" alt="Картинка"  />
+                            {% endif %}
+    
+							
+						</div>
+
+						<div class="p-t-32">
+                            
+							<span class="flex-w flex-m stext-111 cl2 p-b-19">
+								<span>
+									<span class="cl4">By</span> {{post_1.author}}  
+									<span class="cl12 m-l-4 m-r-6">|</span>
+								</span>
+
+								<span>
+									{{post_1.posted}}
+									
+								</span>
+
+							</span>
+
+							<h4 class="ltext-109 cl2 p-b-28">
+								{{post_1.title}}
+							</h4>
+
+							<p class="stext-117 cl6 p-b-26">
+								{% autoescape off %}
+                            <p> {{ post_1.content|linebreaksbr }} </p>
+                            {% endautoescape %}
+						
+
+							
+                            
+						</div>
+
+						
+						<!--  -->
+                        
+						<div class="p-t-40">
+                            {% if user.is_authenticated %}
+							<h5 class="mtext-113 cl2 p-b-12">
+								Оставить комментарий
+							</h5>
+
+                            
+
+							
+
+							<form method="POST" >
+                                {% csrf_token %}
+								<div class="bor19 m-b-20">
+									<textarea class="stext-111 cl2 plh3 size-124 p-lr-18 p-tb-15" name="text" placeholder="Комментарий..." required id="id_text"></textarea>
+								</div>
+								<button type="submit" class="flex-c-m stext-101 cl0 size-125 bg3 bor2 hov-btn3 p-lr-15 trans-04">
+									Отправить
+								</button>
+                                </form>
+                            {% else %}
+                            <p class="stext-107 cl6 p-b-40">
+								Для добавления комментария авторизуйтесь.
+							</p>
+                            {% endif %}
+
+
+						</div>
+                        <div class="blogpost_comment">
+                        {% for comment in comments %}
+
+                <h1>{{comment.author}}</h1>
+                <h2>{{comment.text|linebreaksbr}}</h2>
+                <h3>{{comment.date}}</h3>
+                     
+                {% endfor %}
+                <p><a href="{% url 'blog' %}">Назад</a></p>
+					</div>
+				</div>
+                </div>
+
+                
+				
+		    </div>
+		</div>
+				
+	</section>	
+
+
+{% endblock %}
+</body>

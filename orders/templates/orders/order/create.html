@@ -1,0 +1,180 @@
+{% extends "app/layout.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+
+
+
+  <body class="bg-light">
+
+<script defer>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4481610-59', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(39705265, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/39705265" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8588635311388465",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+    <div class="container">
+  <div class="py-5 text-center">
+    
+    <h1>Оформление заказа</h1>
+    <p class="lead"></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">В корзине</span>
+        <span class="badge badge-secondary badge-pill">{{ total_items }}</span>
+      </h4>
+      <ul class="list-group mb-3">
+          {% for item in cart %}
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">{{ item.quantity }}x {{ item.product.name }}</h6>
+            <small class="text-muted">Brief description</small>
+          </div>
+          <span class="text-muted">{{ item.total_price }} руб.</span>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0">Promo code</h6>
+            <small>EXAMPLECODE</small>
+          </div>
+          <span class="text-success">-$5</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (USD)</span>
+          <strong>$20</strong>
+        </li>
+      </ul>
+
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Promo code">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </div>
+      </form>
+    </div>
+      
+          
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Уажите необходимую информацию</h4>
+      <form action="." method="post" class="order-form">
+          
+        
+         {{form.as_p}}
+
+        
+
+        <h4 class="mb-3">Способ оплаты</h4>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+            <label class="custom-control-label" for="credit">Visa</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+            <label class="custom-control-label" for="debit">Master Card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+            <label class="custom-control-label" for="paypal">МИР</label>
+          </div>
+            <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+            <label class="custom-control-label" for="paypal">СБЕР</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <small class="text-muted">Full name as displayed on card</small>
+            <div class="invalid-feedback">
+              Имя на карте
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Credit card number</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <div class="invalid-feedback">
+              Номер карты
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">Expiration</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+            <div class="invalid-feedback">
+              Срок обслуживания
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cc-cvv">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+            <div class="invalid-feedback">
+              CVV
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">-->
+        <input type="submit" value="Place order" class="btn btn-primary btn-lg btn-block" >
+        {% csrf_token %}
+          </form>
+    </div>
+  </div>
+        
+
+  
+</div>
+
+
+      <!--<div class="row">
+         
+      <form action="." method="post" class="order-form">
+        {{ form.as_p }}
+        <p><input type="submit" value="Place order"></p>
+        
+    </form>
+          </div>-->
+  </body>
+
+{% endblock %}

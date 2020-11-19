@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% extends "app/layout.html" %}
+
+{% block content %}
+    <div class="reg_form">
+
+<h2>Регистрация пользователя</h2>
+
+<form method="POST" > 
+<div class="form-group">
+    <label for="id_username">Имя пользовалея</label>
+    <input type="text" name="username" autofocus   required id="id_username" class="form-control" placeholder="Введите имя пользователя">
+    <small class="form-text text-muted">Данные не будут переданы третьим лицам.</small>
+  </div>
+  <div class="form-group">
+    <label for="id_password1">Пароль</label>
+    <input type="password" name="password1" class="form-control" required id="id_password1" placeholder="Пароль">
+  </div>
+    <div class="form-group">
+    <label for="id_password2">Подтверждение пароля</label>
+    <input type="password" name="password2" class="form-control" required id="id_password2" placeholder="Пароль">
+  </div>
+    
+  
+  <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+  {% csrf_token %}
+
+</form>
+</div>
+{% endblock %}
+</body>
+</html>

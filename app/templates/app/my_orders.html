@@ -1,0 +1,23 @@
+
+{%  extends 'app/layout.html' %}
+
+
+{% block content %} 
+<div class=" my_orders">
+
+{% for order in orders %}
+
+<ul>
+    <li>
+        {{order.id}}
+    </li>
+    <li>
+        {{order}}
+    </li>
+</ul>
+
+
+{% endfor %}
+</div>
+
+{% endblock %}

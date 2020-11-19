@@ -1,0 +1,22 @@
+{% extends "app/layout.html" %}
+    
+{% block content %}{% load staticfiles %}
+       
+
+      <div class="images">
+          <div class="client1">
+      <a href ="https://magnit.ru/" target="_blank"> <img src="{% static 'app/content/magnit.png' %}" alt="Logo 1"/></a>
+          <p>«Магнит» является одной из ведущих розничных сетей в России по торговле продуктами питания, лидером по количеству магазинов и географии их расположения.</p></div>
+      <div class="client2">
+          <a href ="https://www.vostbank.ru/" target="_blank"> <img src="{% static 'app/content/vostok.png' %}" alt="Logo 2"/></a>
+          <p>Банк «Восточный» — универсальный банк федерального значения. Специализируется на розничном кредитовании и предлагает полный комплекс услуг для предпринимателей. 
+          Располагает широкой сетью продаж, преимущественно на Дальнем Востоке и в Восточной Сибири.</p></div>
+      <div class="client3">
+          <a href ="https://www.vostbank.ru/" target="_blank"> <img src="{% static 'app/content/lenta.png' %}" alt="Logo 3"/></a>
+          <p>«Ле́нта» — российская сеть гипермаркетов. Управляется компанией «Lenta Ltd». Головной офис находится в Санкт-Петербурге.</p></div>
+      </div>
+
+      
+   
+{% endblock %}
+
