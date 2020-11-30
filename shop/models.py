@@ -28,9 +28,9 @@ class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products')
     name = models.CharField(max_length=200, db_index=True, verbose_name="Название")
     slug = models.SlugField(max_length=200, db_index=True)
-    image1 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name = "Картинка_1")
-    image2 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name = "Картинка_2")
-    image3 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True, verbose_name = "Картинка_3")
+    image1 = models.FileField(upload_to='products/%Y/%m/%d', blank=True, verbose_name = "Картинка_1")
+    image2 = models.FileField(upload_to='products/%Y/%m/%d', blank=True, verbose_name = "Картинка_2")
+    image3 = models.FileField(upload_to='products/%Y/%m/%d', blank=True, verbose_name = "Картинка_3")
 
 
     case_type = models.CharField (max_length = 255 ,default = False, verbose_name = "Тип корпуса")
