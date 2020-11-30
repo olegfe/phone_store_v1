@@ -132,6 +132,7 @@
     <Folder Include="shop\templates\shop\product\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\add_product.html" />
     <Content Include="app\templates\app\blog.html" />
     <Content Include="app\templates\app\blogpost.html" />
     <Content Include="app\templates\app\links.html" />

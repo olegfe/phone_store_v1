@@ -37,8 +37,9 @@ def product_detail(request, id, slug,category_slug=None):
 
 
     # отзыв на продукт
+    
+    #reviews_count = Review.objects.filter(product=product).count() # Попытка посчитать колчичество отзывов
     reviews = Review.objects.filter(product=id)
-    reviews_count = Review.objects.all()
     if request.method == "POST": #после отправки данных формы на сервер методом POST
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -53,8 +54,8 @@ def product_detail(request, id, slug,category_slug=None):
          form = ReviewForm() #создание формы для ввода комментария
 
     assert isinstance(request, HttpRequest)
-    return render(request, 'shop/product/detail.html', {'product': product,'form':form,'reviews': reviews,'reviews_count':reviews_count,
-                                                        'cart_product_form': cart_product_form,'category': category,'categories': categories})
+    return render(request, 'shop/product/detail.html', {'reviews':reviews,'product': product,'form':form,'cart_product_form': cart_product_form,'category': category,'categories': categories,})
+                                                        
 
 
 

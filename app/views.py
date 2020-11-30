@@ -18,6 +18,7 @@ from .forms import CommentForm
 from .forms import BlogForm, ContactForm
 from django.db.models import Count
 from django.shortcuts import render
+from app.forms import AddProductForm
 
 
 
@@ -226,7 +227,7 @@ def videopost(request):
 def my_orders(request):
     """Renders the about page."""
     orders = Order.objects.filter(nickname=request.user)
-    
+   
     
    
     assert isinstance(request, HttpRequest)
@@ -235,4 +236,27 @@ def my_orders(request):
         'app/my_orders.html', {'orders': orders,}
          )
 
+
+def addproduct(request):
+    if request.method == "POST":
+        add_product = AddProductForm(request.POST, request.FILES)
+        if add_product.is_valid():
+            add_p = add_product.save(commit=False)
+            
+
+            add_p.save() #сохранение изменения после добавления
+
+            return redirect('addproduct')
+    else:
+        add_product = AddProductForm()
+
+    assert isinstance(request, HttpRequest)
+    return render (
+        request,
+        'app/add_product.html',
+        {
+            'add_product':add_product,
+            
+            }
+        )
 

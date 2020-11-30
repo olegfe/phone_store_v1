@@ -61,7 +61,7 @@
 			<div class="top-bar m-t-0">  <!-- добавил m-t--25 чтобы сдвинуть к верху полоску/ но потом пересохранил в UTF-8 и удалил m-t-25 -->
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Смартфоны на любой вкус!
+						На рынке с 2005 года!
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -88,13 +88,11 @@
 
                             {% endif %}
 
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
-							РУ
-						</a>
+                        <p  class="flex-c-m trans-04 p-lr-25">
+							руб.
+						</p>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							Руб
-						</a>
+						
 					</div>
 				</div>
 			</div>
@@ -113,7 +111,7 @@
 							<li>
 								<a href="{% url 'home' %}">Главная</a></li>
 	
-							<li class="active-menu">
+							<li class="menu">
 								<a href="{% url 'about' %}">О нас</a>
 							</li>
 
@@ -134,7 +132,21 @@
 							</li>
 
                             {% if user.is_superuser %}
-                            <li><a href="{% url 'newpost' %}">Добавить новость</a></li>
+
+
+                            <li class="menu">
+								<a href="#">Добавить</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'addproduct' %}"> Товар</a></li>
+									 <li><a href="{% url 'newpost' %}"> Новость</a></li>
+									
+								</ul>
+							</li>
+
+                          
+
+                           
+                           
                             {% endif %}
 
                            <!-- <li>
@@ -212,7 +224,7 @@
 				</li>
 
 				<li>
-                   <div class="right-top-bar flex-w h-full">
+                   <div class="right-top-bar flex-w"> <!--убрал h-full после flex-w-->
 						{% if user.is_authenticated %}
                         <form id="logoutForm" action="/logout" method="post" class="flex-c-m p-lr-10 trans-04">
 						 {% csrf_token %}
@@ -244,16 +256,14 @@
 				<li>
 					<a href="{% url 'home' %}">Главная</a>
 					
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
+					
 				</li>
 
 				<li>
 					<a href="{% url 'about' %}">О нас</a>
 				</li>
 
-				<li class="label1" data-label1="hot">
+				<li >
 					<a href="{% url 'shop:product_list' %}">Каталог</a>
 			    </li>
 

@@ -36,6 +36,7 @@ urlpatterns = [
     
     url(r'^registration$', app.views.registration, name='registration'),
     url(r'^newpost$', app.views.newpost, name='newpost'),
+    url(r'^addproduct$', app.views.addproduct, name='addproduct'),
     url(r'^videopost$', app.views.videopost, name='videopost'),
     url(r'^my_orders$', app.views.my_orders, name='my_orders'),
     url(r'^search/', include ('search.urls')),                        #Поиск по сайту

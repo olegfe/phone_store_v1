@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+{% extends "app/layout.html" %}
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% block content %}
+    <div class=" add_product">
+    <form enctype="multipart/form-data" method="POST" ">
+        {% csrf_token %}
+        {{add_product.as_p}}
+        <br />
+        <button type="submit" class="btn btn-primary m-b-75"> Добавить </button>
+    </form>
+</div>
+    {% endblock %}
+</body>
+</html>
