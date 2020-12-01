@@ -46,7 +46,7 @@
 
 
 
-    <div class="container">
+    <div class="container_order_create">
   <div class="py-5 text-center">
     
     <h1>Оформление заказа</h1>
@@ -69,27 +69,28 @@
           <span class="text-muted">{{ item.total_price }} руб.</span>
         </li>
         {% endfor %}
+          {% if cart.coupon %}
         <li class="list-group-item d-flex justify-content-between bg-light">
           <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
+            <h6 class="my-0">Промокод</h6>
+            <small>{{ cart.coupon.code }}</small>
           </div>
-          <span class="text-success">-$5</span>
+          <span class="text-success">({{ cart.coupon.discount }}% скидка)</span>
+        </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0"></h6>
+            <small>- {{ cart.get_discount|floatformat:"2" }} руб.</small>
+          </div>
+          {% endif %}
         </li>
         <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
+          <span>Итого</span>
+          <strong>{{ cart.get_total_price_after_discount|floatformat:"2" }} руб.</strong>
         </li>
       </ul>
-
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </div>
-      </form>
+        
+      
     </div>
       
           
@@ -102,38 +103,38 @@
 
         
 
-        <h4 class="mb-3">Способ оплаты</h4>
+        <h4 class="mb-3 m-t-40">Способ оплаты</h4>
 
         <div class="d-block my-3">
-          <div class="custom-control custom-radio">
+          <div class=" custom-control ">
             <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-            <label class="custom-control-label" for="credit">Visa</label>
+            <label class="custom-radio" for="credit">Visa</label>
           </div>
-          <div class="custom-control custom-radio">
+          <div class=" custom-control">
             <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="custom-control-label" for="debit">Master Card</label>
+            <label class="custom-radio" for="debit">Master Card</label>
           </div>
-          <div class="custom-control custom-radio">
+          <div class=" custom-control">
             <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="custom-control-label" for="paypal">МИР</label>
+            <label class="custom-radio" for="paypal">МИР</label>
           </div>
-            <div class="custom-control custom-radio">
+            <div class=" custom-control">
             <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-            <label class="custom-control-label" for="paypal">СБЕР</label>
+            <label class="custom-radio" for="paypal">СБЕР</label>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <label for="cc-name">Имя на карте</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="Ivan Ivanov" required>
             <small class="text-muted">Full name as displayed on card</small>
             <div class="invalid-feedback">
               Имя на карте
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="cc-number">Credit card number</label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <label for="cc-number">Номер карты</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="0000 0000 0000 0000" required>
             <div class="invalid-feedback">
               Номер карты
             </div>
@@ -141,8 +142,8 @@
         </div>
         <div class="row">
           <div class="col-md-3 mb-3">
-            <label for="cc-expiration">Expiration</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+            <label for="cc-expiration">Срок обслуживания</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="12/20" required>
             <div class="invalid-feedback">
               Срок обслуживания
             </div>
@@ -155,8 +156,8 @@
             </div>
           </div>
         </div>
-        <hr class="mb-4">-->
-        <input type="submit" value="Place order" class="btn btn-primary btn-lg btn-block" >
+        <hr class="mb-4">
+        <input type="submit" value="Оформить заказ" class="btn btn-primary btn-lg btn-block" >
         {% csrf_token %}
           </form>
     </div>

@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^videopost$', app.views.videopost, name='videopost'),
     url(r'^my_orders$', app.views.my_orders, name='my_orders'),
     url(r'^search/', include ('search.urls')),                        #Поиск по сайту
+    url(r'^coupons/', include('coupons.urls', namespace='coupons')),  #Купон
     
 
     

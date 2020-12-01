@@ -1,9 +1,13 @@
 {% extends "app/layout.html" %}
 
-{% block title %}Thank you{% endblock %}
+{% block title %}Заказ оформлен{% endblock %}
 
 {% block content %}
-    <h1>Thank you</h1>
-    <p>Your order has been successfully completed. Your order number is
+<div class="py-5 text-center m-t-250 m-b-250">
+    
+    
+    <h1>Благодарим за заказ!</h1>
+    <p>Номер Вашего заказа: 
         <strong>{{ order.id }}</strong>.</p>
+    </div>
 {% endblock %}

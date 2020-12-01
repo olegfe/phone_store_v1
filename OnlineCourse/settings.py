@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'search',
+    'coupons',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',

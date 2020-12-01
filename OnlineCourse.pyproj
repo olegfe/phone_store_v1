@@ -59,6 +59,19 @@
     </Compile>
     <Compile Include="cart\views.py" />
     <Compile Include="cart\__init__.py" />
+    <Compile Include="coupons\admin.py" />
+    <Compile Include="coupons\apps.py" />
+    <Compile Include="coupons\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="coupons\migrations\__init__.py" />
+    <Compile Include="coupons\models.py" />
+    <Compile Include="coupons\tests.py" />
+    <Compile Include="coupons\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="coupons\views.py" />
+    <Compile Include="coupons\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="OnlineCourse\__init__.py" />
     <Compile Include="OnlineCourse\settings.py" />
@@ -115,6 +128,10 @@
     <Folder Include="cart\migrations\" />
     <Folder Include="cart\templates\" />
     <Folder Include="cart\templates\cart\" />
+    <Folder Include="coupons\" />
+    <Folder Include="coupons\migrations\" />
+    <Folder Include="coupons\templates\" />
+    <Folder Include="coupons\templates\coupons\" />
     <Folder Include="OnlineCourse\" />
     <Folder Include="orders\" />
     <Folder Include="orders\migrations\" />
@@ -142,6 +159,7 @@
     <Content Include="app\templates\app\registration.html" />
     <Content Include="app\templates\app\videopost.html" />
     <Content Include="cart\templates\cart\detail.html" />
+    <Content Include="coupons\templates\coupons\index.html" />
     <Content Include="orders\templates\orders\index.html" />
     <Content Include="orders\templates\orders\order\create.html" />
     <Content Include="orders\templates\orders\order\created.html" />

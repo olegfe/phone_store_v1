@@ -3568,3 +3568,29 @@ input.num-product::-webkit-inner-spin-button {
 	
 }
 
+
+/*Create order*/
+
+.container_order_create {
+	margin:0 auto;
+	margin-top:75px;
+	margin-bottom:150px;
+	max-width: 1380px;
+}
+
+.created_order {
+
+	margin:0 auto;
+	margin-top:150px;
+	margin-bottom:350px;
+}
+.created_order h1 {
+	
+	margin:0 auto;
+	
+}
+.created_order p {
+	
+	margin:0 auto;
+	
+}
