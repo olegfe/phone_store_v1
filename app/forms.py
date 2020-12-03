@@ -83,8 +83,8 @@ class ContactForm(forms.ModelForm):
 class AddProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('category','name','slug','image1','image2','image3','case_type','duo_sim','sim_type','system','display_type','resolution','processor','gpu','cores','cpu_frequency','ram','ram_inside','sd','sd_volume_max','main_cam_mp','frontal_cam_mp',
-                  'flash','mp3_pleer','recorder','usb_interface','accum_volume','size','weigth','description','country','warranty','price','stock','available',)
+        fields = ('category','name','slug','image1','image2','image3','case_type','duo_sim','sim_type','system','display_type','resolution','processor','cores','cpu_frequency','gpu','ram','ram_inside','sd','sd_volume_max','main_cam_mp','frontal_cam_mp',
+                  'flash','mp3_pleer','recorder','usb_interface','accum_volume','size','weight','description','country','warranty','price','stock','available',)
 
         widgets = {
             'category':forms.Select(attrs = {"class":"form-control", "placeholder":"Категория"}),
@@ -101,26 +101,26 @@ class AddProductForm(forms.ModelForm):
             'resolution': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Разрешение экрана"}),
             'processor': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Название процессора"}),
             'cpu_frequency': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Частота прцессора"}),
-            'cores': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Кол-во ядер"}),
+            'cores': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Кол-во ядер"}),
             'gpu': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Название видеоускорителя"}),
-            'ram': forms.TextInput(attrs = {"class":"form-control", "placeholder":"ОЗУ"}),
-            'ram_inside': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Кол-во встроенной памяти"}),
+            'ram': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"ОЗУ"}),
+            'ram_inside': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Кол-во встроенной памяти"}),
             'sd': forms.CheckboxInput(),
-            'sd_volume_max': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Объем sd-карты"}),
-            'main_cam_mp': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Основная камера МП"}),
-            'frontal_cam_mp': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Фронтальная камера МП"}),
+            'sd_volume_max': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Объем sd-карты"}),
+            'main_cam_mp': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Основная камера МП"}),
+            'frontal_cam_mp': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Фронтальная камера МП"}),
             'flash': forms.CheckboxInput(),
             'mp3_pleer': forms.CheckboxInput(),
             'recorder': forms.CheckboxInput(),
             'usb_interface': forms.TextInput(attrs = {"class":"form-control", "placeholder":"USB интерфейс"}),
-            'accum_volume': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Объем аккумулятора мА*ч"}),
+            'accum_volume': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Объем аккумулятора мА*ч"}),
             'size': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Размеры ШхВхТ"}),
-            'weigth': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Вес в граммах"}),
+            'weight': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Вес в граммах"}),
             'description': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Описание"}),
             'country': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Страна производителя"}),
-            'warranty': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Гарантия (лет)"}),
-            'price': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Стоимость"}),
-            'stock': forms.TextInput(attrs = {"class":"form-control", "placeholder":"Кол-во штук на складе"}),
+            'warranty': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Гарантия (лет)"}),
+            'price': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Стоимость"}),
+            'stock': forms.NumberInput(attrs = {"class":"form-control", "placeholder":"Кол-во штук на складе"}),
             'available': forms.CheckboxInput(),
             
 

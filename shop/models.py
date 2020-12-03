@@ -40,8 +40,8 @@ class Product(models.Model):
 
     #ДИСПЛЕЙ
 
-    display_type = models.CharField(max_length = 10, default = False, verbose_name = "Тип экрана")
-    resolution = models.CharField(max_length = 20,default = False , verbose_name = "Разрешение экрана")
+    display_type = models.CharField(max_length = 250, default = False, verbose_name = "Тип экрана")
+    resolution = models.CharField(max_length = 255,default = False , verbose_name = "Разрешение экрана")
 
     #КОНФИГУРАЦИЯ
     processor = models.CharField(max_length = 255, default = False, verbose_name = "Процессор")
@@ -72,7 +72,7 @@ class Product(models.Model):
     #КОПРУС
 
     size = models.CharField(max_length=255, verbose_name = "Размеры (ШхВхТ)")
-    weigth = models.CharField(max_length = 10, verbose_name = "Вес г.")
+    weight = models.CharField(max_length = 10, verbose_name = "Вес г.")
     
     description = models.TextField(blank=True)
     country = models.CharField(max_length= 255, verbose_name = "Страна производителя")

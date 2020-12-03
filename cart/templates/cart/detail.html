@@ -152,10 +152,19 @@
 							-----------------------------------------------------
 						</h4>
                         {% endif %}
-
+                        
+                        {% if cart  %}
 						<a href="{% url "orders:order_create" %}" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Продолжить
 						</a>
+                        {% else %}
+
+                        <a href="{% url "shop:product_list" %}" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+							Добавьте товар
+						</a>
+
+                        {% endif %}
+                        
 					</div>
 				</div>
                 
