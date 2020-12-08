@@ -3421,11 +3421,39 @@ input.num-product::-webkit-inner-spin-button {
 
 /* 29 10 2020 */
 
-.my_orders {
+.my_orders  {
+	margin:0 auto;
 	margin-top:75px;
-	margin-bottom:75px;
+	margin-bottom:150px;
+}
+.my_orders ul {
+	margin-top:25px;
 }
 
+.table_detail_myorders {
+	margin-top:75px;
+	margin-bottom:150px;
+}
+
+.users_orders {
+	margin-top:25px;
+	margin-bottom:150px;
+}
+
+.change_orders  {
+	margin-top:75px;
+	margin-bottom:10px;
+	text-decoration:none;
+	color:#222;
+	text-transform:uppercase;
+}
+
+.change_orders a {
+	
+	text-decoration:none;
+	color:#222;
+	text-transform:uppercase;
+}
 /* 30 10 2020 NEWPOST */
 
 .container_newpost {

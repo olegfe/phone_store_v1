@@ -43,6 +43,15 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'app/content/site/css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/product_page/style.css' %}"> <!--Отвечает за строчку ХАРАКТЕРИСТИКИ , разворачивает ее-->
 
+    <!--СТРАНИЦА ЗАКАЗЫ ПОЛЬЗОВАТЕЛЕЙ-->
+
+   
+  <!--<link rel="stylesheet" type="text/css" href="{% static 'app/content/admin/css/base.css' %}" />-->
+
+  <link rel="stylesheet" type="text/css" href="{% static 'app/content/admin/css/changelists.css' %}" />
+
+   <!------------------------------------------------------------------------------>
+
     
 
    
@@ -71,7 +80,7 @@
 					    {% if user.is_authenticated %}
                         <form id="logoutForm" action="/logout" method="post" class="flex-c-m trans-04 p-lr-25">
                          {% csrf_token %}
-                         Привет, {{ user.username }} </form>
+                        {{ user.username }} </form>
                         {% if  user.is_authenticated %}
                         <a href="{% url 'my_orders' %}" class="flex-c-m trans-04 p-lr-25"> Мои заказы</a>
                         {% endif %}
@@ -89,7 +98,7 @@
                             {% endif %}
 
                         <p  class="flex-c-m trans-04 p-lr-25">
-							руб.
+							руб
 						</p>
 
 						
@@ -130,6 +139,11 @@
 							<li>
 								<a href="{% url 'contact' %}">Контакты</a>
 							</li>
+                            {% if user.is_staff %}
+                            <li>
+								<a href="{% url 'users_orders' %}">Заказы пользователей</a>
+							</li>
+                            {% endif %}
 
                             {% if user.is_superuser %}
 
@@ -438,9 +452,17 @@
 		</span>
 	</div>
 
-	<!--------------------------НАШИ БРЕНДЫ----------------------------------->
-    
+	 <!--СТРАНИЦА ЗАКАЗЫ ПОЛЬЗОВАТЕЛЕЙ-->
    
+<script type="text/javascript" src="{% static 'app/content/admin/jsi18n/jsfile.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/vendor/jquery/jquery.js"' %}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/admin/RelatedObjectLookups.js'%}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/actions.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/urlify.js' %}"></script>
+<script type="text/javascript" src="{% static 'appcontent//admin/js/prepopulate.js' %}"></script>
+<script type="text/javascript" src="{% static 'app/content/admin/js/vendor/xregexp/xregexp.js' %}"></script>
 
     <!------------------------------------------------------------------------------->
     <!--<script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>-->

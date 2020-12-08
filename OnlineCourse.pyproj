@@ -157,6 +157,7 @@
     <Content Include="app\templates\app\my_orders.html" />
     <Content Include="app\templates\app\newpost.html" />
     <Content Include="app\templates\app\registration.html" />
+    <Content Include="app\templates\app\users_orders.html" />
     <Content Include="app\templates\app\videopost.html" />
     <Content Include="cart\templates\cart\detail.html" />
     <Content Include="coupons\templates\coupons\index.html" />

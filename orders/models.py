@@ -2,11 +2,11 @@ from django.db import models
 import django
 from shop.models import Product
 from django.contrib.auth.models import User
+from datetime import datetime
 
 class Order(models.Model):
     
     nickname = models.ForeignKey(User, on_delete=models.CASCADE, default=False)
-    
     
     email = models.EmailField()
     
@@ -16,6 +16,8 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    
+
 
     class Meta:
         ordering = ('-created',)

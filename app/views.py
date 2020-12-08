@@ -227,13 +227,28 @@ def videopost(request):
 def my_orders(request):
     """Renders the about page."""
     orders = Order.objects.filter(nickname=request.user)
+    order_item = OrderItem.objects.filter(order__nickname=request.user)
    
     
    
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/my_orders.html', {'orders': orders,}
+        'app/my_orders.html', {'orders': orders, 'order_item':order_item}
+         )
+
+def users_orders(request):
+    """Renders the about page."""
+    #users_orders = Order.objects.filter(nickname=request.user)
+    users_orders = Order.objects.all()
+    
+   
+    
+   
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/users_orders.html', {'users_orders': users_orders,}
          )
 
 

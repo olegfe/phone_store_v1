@@ -3,37 +3,44 @@
 
 
 {% block content %} 
-<div class=" my_orders">
-
-{% for order in orders %}
-
-<ul>
-    <li>
-        {{order.id}}
-    </li>
-    <li>
-        {{order}}
-    </li>
-</ul>
-
-
-{% endfor %}
-
-
-    {% for product in product %}
-
-<ul>
-    <li>
-        {{product}}
-    </li>
-    <li>
+<div class="container">
+     <div class="table_detail_myorders">
         
-    </li>
-</ul>
+         <table class="table-bordered">
+              <tr>
+      <td colspan="2">Вы заказывали товар</td>
+            
+             
+      <td colspan="2">На сумму</td>
+             
+      <td colspan="2">Дата заказа</td>
+             </tr>
+         {% for order in orders %}
+         {% for item in order_item %}
+    
+    
+      
+    <tr>
+        <td colspan="2"><b>{{item.product}}</b></td>
+         <td colspan="2"><b>{{item.price}}</b></td>
+       <td colspan="2"><b>{{order.created}}</b></td>
+      
+    </tr>
+            
+        {% endfor %}
+         {% endfor %}
+
+    </table>
+        
+         </div>
+    </div>
 
 
-{% endfor %}
 
-</div>
+
+
+
+
+
 
 {% endblock %}
